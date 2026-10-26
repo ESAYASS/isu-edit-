@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esayas Mekonnen | Video Editor & Motion Designer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#121214',
+                        carddark: '#18181c',
+                        ivory: '#F5F1E8',
+                        gold: '#C6A66B',
+                        goldlight: '#E2C78F',
+                        forest: '#263B32',
+                        purpleglow: '#8b5cf6',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .glow-gold {
+            text-shadow: 0 0 30px rgba(198, 166, 107, 0.45);
+        }
+        .glow-purple-box {
+            box-shadow: 0 0 35px rgba(139, 92, 246, 0.25), inset 0 0 15px rgba(139, 92, 246, 0.1);
+        }
+        .glass-panel {
+            background: rgba(24, 24, 28, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .glass-card {
+            background: rgba(20, 20, 24, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(198, 166, 107, 0.15);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121214;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a30;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C6A66B;
+        }
+    </style>
+</head>
+<body class="bg-charcoal text-ivory font-sans antialiased selection:bg-gold selection:text-charcoal overflow-x-hidden">
+
+    <!-- Ambient Glow Background Gradients -->
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="fixed top-1/3 right-10 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="fixed bottom-10 left-10 w-96 h-96 bg-emerald-900/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Monogram Logo using your exact gold 'E' badge image -->
+            <a href="#about" class="group flex items-center space-x-3">
+                <div class="w-11 h-11 rounded-full overflow-hidden border border-gold/40 shadow-lg group-hover:scale-105 transition-transform bg-black flex items-center justify-center p-0.5">
+                    <img src="assets/esayas-logo.png" alt="Esayas Mekonnen E Monogram" class="w-full h-full object-cover rounded-full" style="object-position:center;" onerror="this.style.display='none'; this.parentElement.textContent='E'; this.parentElement.classList.add('text-gold','font-serif','text-2xl');" />
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-xl tracking-wider font-semibold text-ivory group-hover:text-gold transition-colors glow-gold" style="font-family: 'Cormorant Garamond', serif;">
+                        Esayas Mekonnen
+                    </span>
+                    <span class="text-[10px] tracking-widest text-gold/80 uppercase font-sans">Video Editor & Motion Designer</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="#about" class="text-ivory/80 hover:text-gold transition-colors">About</a>
+                <a href="#work" class="text-ivory/80 hover:text-gold transition-colors">Work</a>
+                <a href="#services" class="text-ivory/80 hover:text-gold transition-colors">Services</a>
+                <a href="#contact" class="text-ivory/80 hover:text-gold transition-colors">Contact</a>
+            </nav>
+
+            <!-- Telegram CTA Pill Button -->
+            <div class="hidden md:flex items-center">
+                <a href="https://t.me/isayas_m" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-purple-950/40 hover:bg-purple-900/50 text-purple-200 border border-purple-500/30 glow-purple-box transition-all duration-300 transform hover:-translate-y-0.5 text-sm font-medium">
+                    <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.25.38-.51 1.05-.78 4.12-1.79 6.87-2.97 8.25-3.55 3.93-1.65 4.74-1.94 5.27-1.95.12 0 .39.03.56.17.15.12.19.28.21.4-.01.07.01.27 0 .37z"/></svg>
+                    <span>Telegram Me</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" class="md:hidden text-ivory hover:text-gold focus:outline-none p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-white/5 px-6 py-6 space-y-4">
+            <a href="#about" class="block text-lg text-ivory hover:text-gold transition-colors">About</a>
+            <a href="#work" class="block text-lg text-ivory hover:text-gold transition-colors">Work</a>
+            <a href="#services" class="block text-lg text-ivory hover:text-gold transition-colors">Services</a>
+            <a href="#contact" class="block text-lg text-ivory hover:text-gold transition-colors">Contact</a>
+            <div class="pt-2">
+                <a href="https://t.me/isayas_m" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center justify-center w-full space-x-2 px-5 py-3 rounded-full bg-purple-950/40 text-purple-200 border border-purple-500/30 glow-purple-box text-sm font-medium">
+                    <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.25.38-.51 1.05-.78 4.12-1.79 6.87-2.97 8.25-3.55 3.93-1.65 4.74-1.94 5.27-1.95.12 0 .39.03.56.17.15.12.19.28.21.4-.01.07.01.27 0 .37z"/></svg>
+                    <span>Telegram Me</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-24">
+
+        <!-- SECTION — ABOUT ME -->
+        <section id="about" class="py-28 px-6 relative">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Column: Using your exact Screenshot 2026-10-18 072332.jpg E Badge -->
+                    <div class="lg:col-span-5 relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-gold via-purple-600 to-amber-500 rounded-3xl blur-xl opacity-40 group-hover:opacity-65 transition duration-700"></div>
+                        <div class="relative rounded-2xl overflow-hidden bg-carddark border border-gold/30 aspect-[4/5] shadow-2xl">
+                            <img src="assets/esayas-portrait.jpg" alt="Esayas Mekonnen in his video editing workspace" class="absolute inset-0 w-full h-full object-cover object-center" onerror="this.style.display='none';" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/15 to-transparent"></div>
+                            <div class="absolute inset-x-0 bottom-0 p-6 sm:p-8 text-center">
+                                <h3 class="font-serif text-3xl font-bold text-ivory mb-1 tracking-wide" style="font-family: 'Cormorant Garamond', serif;">Esayas Mekonnen</h3>
+                                <p class="text-xs text-gold font-semibold tracking-[0.2em] uppercase mb-4">Video Editor & Motion Designer</p>
+                                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-sm border border-white/15 text-xs text-ivory/90">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    <span>2+ Years of Cinematic Expertise</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Bio Narrative -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-block text-xs uppercase tracking-[0.25em] text-gold font-semibold">About The Creator</div>
+                        <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-ivory leading-tight" style="font-family: 'Cormorant Garamond', serif;">
+                            The Craft Behind <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold via-ivory to-goldlight glow-gold">The Cut.</span>
+                        </h2>
+                        
+                        <p class="text-ivory/90 text-lg leading-relaxed font-light">
+                            Hello, I am <strong class="text-gold font-normal font-serif text-xl">Esayas Mekonnen</strong>. As a professional video editor and motion designer with over 2 years of dedicated post-production experience, I specialize in transforming raw footage into cinematic visual masterpieces.
+                        </p>
+
+                        <p class="text-ivory/75 text-base leading-relaxed font-light">
+                            My work is rooted in intentional storytelling, precise rhythmic cuts, color science via DaVinci Resolve, and fluid motion graphics in After Effects. Every frame is designed to capture attention, hold viewer retention, and communicate a distinct emotional resonance.
+                        </p>
+
+                        <!-- Key Focus Pillars -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+                            <div class="p-4 rounded-xl bg-carddark/80 border border-white/5 backdrop-blur-md">
+                                <div class="text-gold font-serif text-2xl font-semibold mb-1">Pacing</div>
+                                <div class="text-xs text-ivory/60">Cinematic rhythm & flow</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-carddark/80 border border-white/5 backdrop-blur-md">
+                                <div class="text-gold font-serif text-2xl font-semibold mb-1">Color</div>
+                                <div class="text-xs text-ivory/60">DaVinci grade science</div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-carddark/80 border border-white/5 backdrop-blur-md col-span-2 sm:col-span-1">
+                                <div class="text-gold font-serif text-2xl font-semibold mb-1">Motion</div>
+                                <div class="text-xs text-ivory/60">After Effects kinetic art</div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Telegram Action -->
+                        <div class="pt-4 flex items-center space-x-4">
+                            <a href="https://t.me/isayas_m" target="_blank" rel="noopener noreferrer" 
+                               class="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-purple-950/50 hover:bg-purple-900/60 text-purple-200 border border-purple-500/30 glow-purple-box transition-all text-sm font-medium">
+                                <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.25.38-.51 1.05-.78 4.12-1.79 6.87-2.97 8.25-3.55 3.93-1.65 4.74-1.94 5.27-1.95.12 0 .39.03.56.17.15.12.19.28.21.4-.01.07.01.27 0 .37z"/></svg>
+                                <span>Connect on Telegram (@isayas_m)</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION — SELECTED WORK (EMBEDDING YOUR EXACT VIDEOS) -->
+        <section id="work" class="py-28 px-6 bg-black/40 border-t border-white/5 relative">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                    <div>
+                        <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">Portfolio Gallery</span>
+                        <h2 class="font-serif text-4xl md:text-5xl font-bold text-ivory mt-2" style="font-family: 'Cormorant Garamond', serif;">Curated Portfolio.</h2>
+                    </div>
+                    <!-- Category Filters -->
+                    <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="filter-buttons">
+                        <button class="px-4 py-2 rounded-full text-xs font-medium tracking-wide bg-gold text-charcoal transition-all filter-btn active" data-filter="all">All Projects</button>
+                        <button class="px-4 py-2 rounded-full text-xs font-medium tracking-wide bg-carddark text-ivory/80 hover:bg-white/10 transition-all filter-btn" data-filter="real-estate">Real Estate</button>
+                        <button class="px-4 py-2 rounded-full text-xs font-medium tracking-wide bg-carddark text-ivory/80 hover:bg-white/10 transition-all filter-btn" data-filter="brand">Brand & Finance</button>
+                    </div>
+                </div>
+
+                <!-- Portfolio Grid: six selected projects; kinetic motion project removed -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+                    <div class="portfolio-item group cursor-pointer" data-category="real-estate" onclick="openVideoModal('Miheret Genene Gift Real Estate', 'Real Estate', 'videos/miheret-real-estate.mp4', 'Luxury property walkthrough and sales presentation.', 'Video Editor', 'Adobe Premiere Pro, After Effects, DaVinci Resolve')">
+                        <div class="relative aspect-[9/16] rounded-2xl overflow-hidden bg-carddark border border-white/5 group-hover:border-gold/40 transition-all duration-500 shadow-xl">
+                            <video src="videos/miheret-real-estate.mp4" class="absolute inset-0 w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-700" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent z-10 opacity-80"></div>
+                            <div class="absolute top-4 left-4 z-20">
+                                <span class="px-3 py-1 rounded-full text-[10px] uppercase tracking-widest bg-charcoal/85 backdrop-blur-md text-gold border border-gold/30">Real Estate</span>
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6 z-20">
+                                <h3 class="font-serif text-2xl font-semibold text-ivory group-hover:text-gold transition-colors" style="font-family: 'Cormorant Garamond', serif;">Miheret Genene Gift Real Estate</h3>
+                                <p class="text-xs text-ivory/70 mt-1">Luxury property walkthrough and sales presentation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item group cursor-pointer" data-category="brand" onclick="openVideoModal('HFM Video Project', 'Brand & Finance', 'videos/hfm-project.mp4', 'Video project supplied as hfm.mp4.', 'Video Editor', 'Adobe Premiere Pro, After Effects, DaVinci Resolve')">
+                        <div class="relative aspect-[9/16] rounded-2xl overflow-hidden bg-carddark border border-white/5 group-hover:border-gold/40 transition-all duration-500 shadow-xl">
+                            <video src="videos/hfm-project.mp4" class="absolute inset-0 w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-700" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent z-10 opacity-80"></div>
+                            <div class="absolute top-4 left-4 z-20">
+                                <span class="px-3 py-1 rounded-full text-[10px] uppercase tracking-widest bg-charcoal/85 backdrop-blur-md text-gold border border-gold/30">Brand & Finance</span>
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6 z-20">
+                                <h3 class="font-serif text-2xl font-semibold text-ivory group-hover:text-gold transition-colors" style="font-family: 'Cormorant Garamond', serif;">HFM Video Project</h3>
+                                <p class="text-xs text-ivory/70 mt-1">Video project supplied as hfm.mp4.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item group cursor-pointer" data-category="real-estate" onclick="openVideoModal('Selam Gift Real Estate Showcase', 'Real Estate', 'videos/selam-real-estate.mp4', 'Property highlights and investment opportunities.', 'Video Editor', 'Adobe Premiere Pro, After Effects, DaVinci Resolve')">
+                        <div class="relative aspect-[9/16] rounded-2xl overflow-hidden bg-carddark border border-white/5 group-hover:border-gold/40 transition-all duration-500 shadow-xl">
+                            <video src="videos/selam-real-estate.mp4" class="absolute inset-0 w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-700" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent z-10 opacity-80"></div>
+                            <div class="absolute top-4 left-4 z-20">
+                                <span class="px-3 py-1 rounded-full text-[10px] uppercase tracking-widest bg-charcoal/85 backdrop-blur-md text-gold border border-gold/30">Real Estate</span>
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6 z-20">
+                                <h3 class="font-serif text-2xl font-semibold text-ivory group-hover:text-gold transition-colors" style="font-family: 'Cormorant Garamond', serif;">Selam Gift Real Estate Showcase</h3>
+                                <p class="text-xs text-ivory/70 mt-1">Property highlights and investment opportunities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item group cursor-pointer" data-category="real-estate" onclick="openVideoModal('Yabika Properties Showcase', 'Real Estate', 'videos/yabika-properties.mp4', 'Corporate real estate presentation.', 'Video Editor', 'Adobe Premiere Pro, After Effects, DaVinci Resolve')">
+                        <div class="relative aspect-[16/9] rounded-2xl overflow-hidden bg-carddark border border-white/5 group-hover:border-gold/40 transition-all duration-500 shadow-xl">
+                            <video src="videos/yabika-properties.mp4" class="absolute inset-0 w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-700" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent z-10 opacity-80"></div>
+                            <div class="absolute top-4 left-4 z-20">
+                                <span class="px-3 py-1 rounded-full text-[10px] uppercase tracking-widest bg-charcoal/85 backdrop-blur-md text-gold border border-gold/30">Real Estate</span>
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6 z-20">
+                                <h3 class="font-serif text-2xl font-semibold text-ivory group-hover:text-gold transition-colors" style="font-family: 'Cormorant Garamond', serif;">Yabika Properties Showcase</h3>
+                                <p class="text-xs text-ivory/70 mt-1">Corporate real estate presentation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item group cursor-pointer" data-category="real-estate" onclick="openVideoModal('Bufe Delager', 'Real Estate', 'videos/bufe-delager.mp4', 'Additional real-estate video project.', 'Video Editor', 'Adobe Premiere Pro, After Effects, DaVinci Resolve')">
+                        <div class="relative aspect-[9/16] rounded-2xl overflow-hidden bg-carddark border border-white/5 group-hover:border-gold/40 transition-all duration-500 shadow-xl">
+                            <video src="videos/bufe-delager.mp4" class="absolute inset-0 w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-700" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;"></video>
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent z-10 opacity-80"></div>
+                            <div class="absolute top-4 left-4 z-20">
+                                <span class="px-3 py-1 rounded-full text-[10px] uppercase tracking-widest bg-charcoal/85 backdrop-blur-md text-gold border border-gold/30">Real Estate</span>
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6 z-20">
+                                <h3 class="font-serif text-2xl font-semibold text-ivory group-hover:text-gold transition-colors" style="font-family: 'Cormorant Garamond', serif;">Bufe Delager</h3>
+                                <p class="text-xs text-ivory/70 mt-1">Additional real-estate video project.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION — SERVICES -->
+        <section id="services" class="py-28 px-6 relative">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-20">
+                    <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">Expertise & Offerings</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-ivory mt-2" style="font-family: 'Cormorant Garamond', serif;">Tailored Video Services.</h2>
+                    <p class="text-ivory/70 text-sm mt-4 font-light">Comprehensive post-production solutions designed for brands, agencies, real estate firms, and creators seeking a refined visual identity.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Service 1 -->
+                    <div class="p-8 rounded-2xl bg-carddark border border-white/5 hover:border-gold/30 transition-all duration-300 group">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">01</div>
+                        <h3 class="font-serif text-2xl font-semibold text-ivory mb-3 group-hover:text-gold transition-colors" style="font-family: 'Cormorant Garamond', serif;">Professional Video Editing</h3>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light mb-6">Sculpting raw footage into a seamless cinematic narrative. Precise pacing, cut timing, narrative structure, and scene rhythm tailored to your vision.</p>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">Narrative Flow</span>
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">Multi-Cam</span>
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">Rhythmic Cuts</span>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="p-8 rounded-2xl bg-carddark border border-white/5 hover:border-gold/30 transition-all duration-300 group">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">02</div>
+                        <h3 class="font-serif text-2xl font-semibold text-ivory mb-3 group-hover:text-gold transition-colors" style="font-family: 'Cormorant Garamond', serif;">Motion Graphics & Animation</h3>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light mb-6">Elevating visual interest through bespoke kinetic typography, title design, sleek lower thirds, logo reveals, and dynamic vector graphics.</p>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">Kinetic Type</span>
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">Logo Animation</span>
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">UI Overlays</span>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="p-8 rounded-2xl bg-carddark border border-white/5 hover:border-gold/30 transition-all duration-300 group">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">03</div>
+                        <h3 class="font-serif text-2xl font-semibold text-ivory mb-3 group-hover:text-gold transition-colors" style="font-family: 'Cormorant Garamond', serif;">Cinematic Color Grading</h3>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light mb-6">Setting mood and luxury tone with professional color science in DaVinci Resolve. Shot matching, exposure correction, and stylized grade palettes.</p>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">DaVinci Resolve</span>
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">Skin Tones</span>
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">Look Creation</span>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="p-8 rounded-2xl bg-carddark border border-white/5 hover:border-gold/30 transition-all duration-300 group">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">04</div>
+                        <h3 class="font-serif text-2xl font-semibold text-ivory mb-3 group-hover:text-gold transition-colors" style="font-family: 'Cormorant Garamond', serif;">Promotional & Brand Videos</h3>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light mb-6">High-production value storytelling that elevates brand perception, establishes market authority, and drives conversion across platforms.</p>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">Brand Narrative</span>
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">Commercial Standard</span>
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">Sound Design</span>
+                        </div>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="p-8 rounded-2xl bg-carddark border border-white/5 hover:border-gold/30 transition-all duration-300 group">
+                        <div class="text-gold font-serif text-3xl font-bold mb-4">05</div>
+                        <h3 class="font-serif text-2xl font-semibold text-ivory mb-3 group-hover:text-gold transition-colors" style="font-family: 'Cormorant Garamond', serif;">Real Estate Video Editing</h3>
+                        <p class="text-ivory/70 text-sm leading-relaxed font-light mb-6">Showcasing high-end properties through smooth speed ramps, warm lighting grades, stabilized movements, and rich ambient audio environments.</p>
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">Speed Ramping</span>
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">Stabilization</span>
+                            <span class="text-[11px] px-3 py-1 rounded-full bg-white/5 text-ivory/80">Walkthroughs</span>
+                        </div>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="p-8 rounded-2xl bg-carddark border border-white/5 hover:border-gold/30 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                            <div class="text-gold font-serif text-3xl font-bold mb-4">06</div>
+                            <h3 class="font-serif text-2xl font-semibold text-ivory mb-3 group-hover:text-gold transition-colors" style="font-family: 'Cormorant Garamond', serif;">Custom Post Pipeline</h3>
+                            <p class="text-ivory/70 text-sm leading-relaxed font-light mb-6">Tailored editing workflows built to scale with your production needs, ensuring rapid turnaround without compromising on luxury aesthetics.</p>
+                        </div>
+                        <div class="pt-4 border-t border-white/5">
+                            <a href="https://t.me/isayas_m" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-xs text-gold font-medium hover:underline">
+                                <span>Discuss Your Project</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION — CONTACT -->
+        <section id="contact" class="py-28 px-6 bg-black/40 border-t border-white/5 relative">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">Start A Conversation</span>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-ivory mt-2" style="font-family: 'Cormorant Garamond', serif;">Have a Story Worth Telling?</h2>
+                <p class="text-ivory/70 text-base mt-4 font-light max-w-xl mx-auto">
+                    Let's collaborate on your next video or motion design project. Reach out directly through Telegram for a rapid response.
+                </p>
+
+                <!-- Direct Telegram Action Box -->
+                <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <a href="https://t.me/isayas_m" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center space-x-3 px-8 py-4 rounded-full bg-purple-950/40 hover:bg-purple-900/60 text-purple-200 border border-purple-500/30 glow-purple-box transition-all duration-300 transform hover:scale-105 text-base font-medium">
+                        <svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.25.38-.51 1.05-.78 4.12-1.79 6.87-2.97 8.25-3.55 3.93-1.65 4.74-1.94 5.27-1.95.12 0 .39.03.56.17.15.12.19.28.21.4-.01.07.01.27 0 .37z"/></svg>
+                        <span>Message on Telegram: @isayas_m</span>
+                    </a>
+                </div>
+
+                <div class="mt-16 pt-12 border-t border-white/5 flex flex-wrap items-center justify-center gap-8 text-xs text-ivory/60">
+                    <div><span>Software Suite: Premiere Pro · After Effects · DaVinci Resolve</span></div>
+                    <div><span>Experience: 2+ Years Professional Post-Production</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-12 px-6 border-t border-white/5 text-center text-xs text-ivory/50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <span class="font-serif text-ivory font-semibold" style="font-family: 'Cormorant Garamond', serif;">Esayas Mekonnen</span>
+                <span>© 2026. All rights reserved.</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="https://t.me/isayas_m" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors">Telegram (@isayas_m)</a>
+                <a href="#about" class="hover:text-gold transition-colors">Back to Top</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VIDEO PLAYER MODAL -->
+    <div id="video-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md hidden">
+        <div class="relative w-full max-w-4xl glass-panel p-6 rounded-2xl border border-gold/30 shadow-2xl max-h-[95vh] overflow-y-auto">
+            <button onclick="closeVideoModal()" class="absolute top-4 right-4 z-30 text-ivory/80 hover:text-gold p-2 bg-charcoal/80 rounded-full">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <div class="relative w-full aspect-[9/16] md:aspect-[16/9] bg-black rounded-xl overflow-hidden mb-6">
+                <video id="modal-video-player" src="" controls autoplay class="w-full h-full object-contain"></video>
+            </div>
+            <div id="modal-category" class="text-xs uppercase tracking-widest text-gold font-semibold mb-1">Category</div>
+            <h3 id="modal-title" class="font-serif text-3xl font-bold text-ivory mb-3" style="font-family: 'Cormorant Garamond', serif;">Project Title</h3>
+            <p id="modal-description" class="text-ivory/80 text-sm leading-relaxed font-light mb-6">Description...</p>
+            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/10 text-xs">
+                <div>
+                    <span class="text-gold font-medium block mb-1">My Role</span>
+                    <span id="modal-role" class="text-ivory/80">Lead Video Editor</span>
+                </div>
+                <div>
+                    <span class="text-gold font-medium block mb-1">Software Suite</span>
+                    <span id="modal-software" class="text-ivory/80">Premiere Pro, DaVinci Resolve</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Portfolio filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-gold', 'text-charcoal');
+                    b.classList.add('bg-carddark', 'text-ivory/80');
+                });
+                btn.classList.remove('bg-carddark', 'text-ivory/80');
+                btn.classList.add('bg-gold', 'text-charcoal');
+
+                const filter = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Video Modal Logic
+        const modal = document.getElementById('video-modal');
+        const modalVideo = document.getElementById('modal-video-player');
+        const modalTitle = document.getElementById('modal-title');
+        const modalCategory = document.getElementById('modal-category');
+        const modalDescription = document.getElementById('modal-description');
+        const modalRole = document.getElementById('modal-role');
+        const modalSoftware = document.getElementById('modal-software');
+
+        function openVideoModal(title, category, videoSrc, description, role, software) {
+            modalTitle.textContent = title;
+            modalCategory.textContent = category;
+            modalVideo.src = videoSrc;
+            modalDescription.textContent = description;
+            modalRole.textContent = role;
+            modalSoftware.textContent = software;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            modalVideo.play();
+        }
+
+        function closeVideoModal() {
+            modalVideo.pause();
+            modalVideo.src = "";
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeVideoModal();
+            }
+        });
+    </script>
+</body>
+</html>
